@@ -13,13 +13,12 @@ body {
     color: #7a3b3b !important;
 }
 
-/* Header */
 header {
     background: linear-gradient(to right, #ffe4e9, #ffd6df);
     color: #7a3b3b;
 }
 
-/* Titles */
+
 h1 {
     font-size: 45px;
     font-weight: bold;
@@ -29,12 +28,12 @@ h2 {
     color: #7a3b3b;
 }
 
-/* Text */
+
 p {
     color: #555;
 }
 
-/* Button */
+
 .btn-dark {
     background-color: #f4a6b0;
     border: none;
@@ -46,12 +45,18 @@ p {
     background-color: #e8899a;
 }
 
-/* Image */
+
 img {
     border-radius: 15px;
 }
+  strong{
+  color:#7b3030;
+}
+ul{
+      color:#964949;
+}
 
-/* Footer */
+
 footer {
     background-color: #f8d7da;
     color: #7a3b3b;
@@ -71,4 +76,11 @@ section{
 .my-link{
     color:#552121 !important;
     /*text-decoration: none;*/
+}
+.carousel {
+    box-shadow: 0 20px 25px 5px rgba(189, 88, 153, 0.441);
+    border-radius: 15px;
+}
+ p{
+    color:#964949;
 }
