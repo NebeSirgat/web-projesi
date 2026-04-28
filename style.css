@@ -46,7 +46,7 @@ p {
 }
 
 
-img {
+img { 
     border-radius: 15px;
 }
   strong{
@@ -82,5 +82,12 @@ section{
     border-radius: 15px;
 }
  p{
-    color:#964949;
+    color:#964949 ;
+}
+.book-img {
+    width: 160px;
+    height: 250px;
+    object-fit: cover;
+    margin: 20px auto 0;
+    border-radius: 10px;
 }
