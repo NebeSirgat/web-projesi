@@ -1,16 +1,16 @@
 <?php
-$adsoyad = $_POST["adsoyad"];
+$name = $_POST["name"];
 $email = $_POST["email"];
-$telefon = $_POST["telefon"];
-$cinsiyet = $_POST["cinsiyet"];
-$mesaj = $_POST["mesaj"];
+$phone = $_POST["phone"];
+$gender = $_POST["gender"];
+$message = $_POST["message"];
 
 echo "<h2>İletişim Formu Bilgileri</h2>";
 echo "<p><strong>Ad Soyad:</strong> $name</p>";
 echo "<p><strong>Email:</strong> $email</p>";
 echo "<p><strong>Telefon:</strong> $phone</p>";
 echo "<p><strong>Cinsiyet:</strong> $gender</p>";
-echo"<P><strong>hobiler:</strong> $hobby[]</p>";
+echo"<P><strong>hobiler:</strong> $hobby</p>";
 echo "<p><strong>Mesaj:</strong> $message</p>";
 
 if (isset($_POST["hobiler"])) {
