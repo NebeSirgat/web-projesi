@@ -99,3 +99,18 @@ section{
 .btn-primary:hover {
     background-color: #e95d9c;
 }
+,.pink-btn {
+    background-color: #ffb6c1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.pink-btn:hover {
+    background-color: #ff69b4;
+}
+h4{
+color:#964949;
+
+}
