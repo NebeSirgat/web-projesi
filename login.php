@@ -1,6 +1,6 @@
 <?php
 $correctEmail = "b251210577@sakarya.edu.tr";
-$cor rectPassword = "b251210577";
+$correctPassword = "b251210577";
 
 $username = $_POST["username"];
 $password = $_POST["password"];
