@@ -10,12 +10,11 @@ echo "<p><strong>Ad Soyad:</strong> $name</p>";
 echo "<p><strong>Email:</strong> $email</p>";
 echo "<p><strong>Telefon:</strong> $phone</p>";
 echo "<p><strong>Cinsiyet:</strong> $gender</p>";
-echo"<P><strong>hobiler:</strong> $hobby</p>";
 echo "<p><strong>Mesaj:</strong> $message</p>";
 
-if (isset($_POST["hobiler"])) {
+if (isset($_POST["hobby"])) {
     echo "<p><strong>Hobiler:</strong> ";
-    foreach ($_POST["hobiler"] as $hobi) {
+    foreach ($_POST["hobby"] as $hobi) {
         echo $hobi . " ";
     }
     echo "</p>";
