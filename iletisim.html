@@ -1,20 +1,25 @@
-<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+       <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<div id="app">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="index.html">Nebe Şırgat</a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
@@ -29,197 +34,140 @@
     </div>
 </nav>
 
-<!-- Vue app div -->
-<div id="app">
 <div class="container mt-5">
     <h2 class="text-center mb-4">İletişim Formu</h2>
 
-    <!-- Hata mesajları -->
-    <div id="jsErrors" class="alert alert-danger d-none mb-3"></div>
-    <div id="vueErrors" class="alert alert-warning d-none mb-3"></div>
-    <div id="successMsg" class="alert alert-success d-none mb-3">✅ Form başarıyla gönderildi!</div>
+    <div id="jsErrors" class="alert alert-danger d-none"></div>
+    <div id="vueErrors" class="alert alert-warning d-none"></div>
 
     <form id="contactForm" action="iletisim.php" method="POST">
 
-        <!-- Ad Soyad -->
-        <div class="mb-3">
-            <label for="name" class="form-label">Ad Soyad</label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="Adınızı giriniz">
+        <input type="text" id="name" name="name" class="form-control mb-2" placeholder="Ad Soyad">
+
+        <input type="text" id="email" name="email" class="form-control mb-2" placeholder="Email">
+
+        <input type="text" id="phone" name="phone" class="form-control mb-2" placeholder="Telefon">
+
+        <div class="mb-2">
+            <label>Cinsiyet</label><br>
+            <input type="radio" name="gender" value="Kadın"> Kadın
+            <input type="radio" name="gender" value="Erkek"> Erkek
         </div>
 
-        <!-- Email -->
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="text" id="email" name="email" class="form-control" placeholder="Email adresinizi giriniz">
-        </div>
-
-        <!-- Telefon -->
-        <div class="mb-3">
-            <label for="phone" class="form-label">Telefon</label>
-            <input type="text" id="phone" name="phone" class="form-control" placeholder="Telefon numaranızı giriniz">
-        </div>
-
-        <!-- Cinsiyet -->
-        <div class="mb-3">
-            <label class="form-label">Cinsiyet</label><br>
-            <input type="radio" name="gender" value="Kadın" id="kadin">
-            <label for="kadin" class="me-3">Kadın</label>
-            <input type="radio" name="gender" value="Erkek" id="erkek">
-            <label for="erkek">Erkek</label>
-        </div>
-
-        <!-- Hobiler -->
-        <div class="mb-3">
-            <label class="form-label">Hobiler</label><br>
-            <input type="checkbox" name="hobby[]" value="Kitap" id="kitap">
-            <label for="kitap" class="me-3">Kitap</label>
-            <input type="checkbox" name="hobby[]" value="Müzik" id="muzik">
-            <label for="muzik" class="me-3">Müzik</label>
-            <input type="checkbox" name="hobby[]" value="Spor" id="spor">
-            <label for="spor">Spor</label>
-        </div>
-
-        <!-- Şehir (Select) -->
-        <div class="mb-3">
-            <label for="sehir" class="form-label">Şehir</label>
+        <div class="mb-2">
+            <label>Şehir</label>
             <select id="sehir" name="sehir" class="form-select">
-                <option value="">-- Şehir Seçiniz --</option>
-                <option value="İstanbul">İstanbul</option>
-                <option value="Ankara">Ankara</option>
-                <option value="Sakarya">Sakarya</option>
-                <option value="İzmir">İzmir</option>
-                <option value="Diğer">Diğer</option>
+                <option value="">Seçiniz</option>
+                <option>İstanbul</option>
+                <option>Ankara</option>
+                <option>Sakarya</option>
+                <option>İzmir</option>
             </select>
         </div>
 
-        <!-- Mesaj -->
-        <div class="mb-3">
-            <label for="message" class="form-label">Mesaj</label>
-            <textarea id="message" name="message" class="form-control" rows="4" placeholder="Mesajınızı giriniz"></textarea>
-        </div>
+        <textarea id="message" name="message" class="form-control mb-2" placeholder="Mesaj"></textarea>
 
-        <!-- İki Farklı Buton -->
-        <div class="d-flex gap-3 flex-wrap">
-            <!-- Buton 1: Native JavaScript ile denetim -->
+        <div class="d-flex gap-3">
+
+            <!-- Native JS -->
             <button type="button" class="btn btn-primary" onclick="jsValidate()">
-                🔵 Gönder (Native JS)
+                🔵 JS Gönder
             </button>
 
-            <!-- Buton 2: Vue.js ile denetim -->
+            <!-- Vue -->
             <button type="button" class="btn btn-success" @click="vueValidate">
-                🟢 Gönder (Vue.js)
+                🟢 Vue Gönder
             </button>
 
-            <!-- Reset -->
             <button type="reset" class="btn btn-secondary">Temizle</button>
         </div>
 
     </form>
 </div>
-</div><!-- end #app -->
+
+</div>
 
 <footer class="text-white text-center p-3 mt-5" style="background:#222;">
     © 2026 Nebe Şırgat
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Vue 3 -->
 <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
 
 <script>
-    // =====================
-    // BUTON 1: Native JavaScript Doğrulama
-    // =====================
-    function jsValidate() {
-        const name    = document.getElementById("name").value.trim();
-        const email   = document.getElementById("email").value.trim();
-        const phone   = document.getElementById("phone").value.trim();
-        const message = document.getElementById("message").value.trim();
-        const sehir   = document.getElementById("sehir").value;
+// =====================
+// Native JS Validation
+// =====================
+function jsValidate() {
 
-        const errorDiv   = document.getElementById("jsErrors");
-        const successDiv = document.getElementById("successMsg");
-        errorDiv.classList.add("d-none");
-        successDiv.classList.add("d-none");
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const sehir = document.getElementById("sehir").value;
+    const gender = document.querySelector('input[name="gender"]:checked');
 
-        let errors = [];
+    let errors = [];
+    let errorDiv = document.getElementById("jsErrors");
 
-        if (name === "")    errors.push("Ad Soyad boş bırakılamaz.");
-        if (email === "")   errors.push("Email boş bırakılamaz.");
-        else if (!email.includes("@") || !email.includes("."))
-                            errors.push("Geçerli bir email adresi giriniz.");
-        if (phone === "")   errors.push("Telefon boş bırakılamaz.");
-        else if (isNaN(phone) || phone.length < 10)
-                            errors.push("Telefon sadece rakamlardan oluşmalı ve en az 10 haneli olmalıdır.");
-        if (sehir === "")   errors.push("Lütfen bir şehir seçiniz.");
-        if (message === "") errors.push("Mesaj boş bırakılamaz.");
+    document.getElementById("vueErrors").classList.add("d-none");
+    errorDiv.classList.add("d-none");
 
-        const genderChecked = document.querySelector('input[name="gender"]:checked');
-        if (!genderChecked) errors.push("Lütfen cinsiyet seçiniz.");
+    if (name === "") errors.push("Ad boş");
+    if (email === "" || !email.includes("@")) errors.push("Email hatalı");
+    if (phone === "" || isNaN(phone)) errors.push("Telefon hatalı");
+    if (!gender) errors.push("Cinsiyet seç");
+    if (sehir === "") errors.push("Şehir seç");
+    if (message === "") errors.push("Mesaj boş");
 
-        if (errors.length > 0) {
-            errorDiv.innerHTML = "<strong>🔵 Native JS Hataları:</strong><ul>"
-                + errors.map(e => `<li>${e}</li>`).join("") + "</ul>";
-            errorDiv.classList.remove("d-none");
-        } else {
-            successDiv.innerHTML = "✅ Native JS: Form doğrulandı! Gönderiliyor...";
-            successDiv.classList.remove("d-none");
-            // Gerçek gönderim
-            document.getElementById("contactForm").submit();
-        }
+    if (errors.length > 0) {
+        errorDiv.innerHTML = "<ul>" + errors.map(e => `<li>${e}</li>`).join("") + "</ul>";
+        errorDiv.classList.remove("d-none");
+    } else {
+        document.getElementById("contactForm").submit();
     }
+}
 
-    // =====================
-    // BUTON 2: Vue.js Doğrulama
-    // =====================
-    const { createApp } = Vue;
-    createApp({
-        methods: {
-            vueValidate() {
-                const name    = document.getElementById("name").value.trim();
-                const email   = document.getElementById("email").value.trim();
-                const phone   = document.getElementById("phone").value.trim();
-                const message = document.getElementById("message").value.trim();
-                const sehir   = document.getElementById("sehir").value;
+// =====================
+// Vue App
+// =====================
+const { createApp } = Vue;
 
-                const errorDiv   = document.getElementById("vueErrors");
-                const successDiv = document.getElementById("successMsg");
-                errorDiv.classList.add("d-none");
-                successDiv.classList.add("d-none");
+createApp({
+    methods: {
+        vueValidate() {
 
-                let errors = [];
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const sehir = document.getElementById("sehir").value;
+            const gender = document.querySelector('input[name="gender"]:checked');
 
-                if (name === "")
-                    errors.push("Ad Soyad boş bırakılamaz.");
-                if (email === "")
-                    errors.push("Email boş bırakılamaz.");
-                else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-                    errors.push("Geçerli bir email formatı giriniz (örn: abc@mail.com).");
-                if (phone === "")
-                    errors.push("Telefon boş bırakılamaz.");
-                else if (!/^\d{10,11}$/.test(phone))
-                    errors.push("Telefon sadece rakam içermeli ve 10-11 haneli olmalıdır.");
-                if (sehir === "")
-                    errors.push("Lütfen bir şehir seçiniz.");
-                if (message === "")
-                    errors.push("Mesaj alanı boş bırakılamaz.");
+            let errors = [];
+            let errorDiv = document.getElementById("vueErrors");
 
-                const genderChecked = document.querySelector('input[name="gender"]:checked');
-                if (!genderChecked)
-                    errors.push("Lütfen cinsiyet seçiniz.");
+            document.getElementById("jsErrors").classList.add("d-none");
+            errorDiv.classList.add("d-none");
 
-                if (errors.length > 0) {
-                    errorDiv.innerHTML = "<strong>🟢 Vue.js Hataları:</strong><ul>"
-                        + errors.map(e => `<li>${e}</li>`).join("") + "</ul>";
-                    errorDiv.classList.remove("d-none");
-                } else {
-                    successDiv.innerHTML = "✅ Vue.js: Form doğrulandı! Gönderiliyor...";
-                    successDiv.classList.remove("d-none");
-                    document.getElementById("contactForm").submit();
-                }
+            if (name === "") errors.push("Ad boş");
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push("Email hatalı");
+            if (!/^\d{10,11}$/.test(phone)) errors.push("Telefon hatalı");
+            if (!gender) errors.push("Cinsiyet seç");
+            if (sehir === "") errors.push("Şehir seç");
+            if (message === "") errors.push("Mesaj boş");
+
+            if (errors.length > 0) {
+                errorDiv.innerHTML = "<ul>" + errors.map(e => `<li>${e}</li>`).join("") + "</ul>";
+                errorDiv.classList.remove("d-none");
+            } else {
+                document.getElementById("contactForm").submit();
             }
         }
-    }).mount("#app");
+    }
+}).mount("#app");
+
 </script>
+
 </body>
 </html>
